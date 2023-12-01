@@ -1,0 +1,20 @@
+public Produto findNaoRecursivo(Integer valor) {
+        if (this.isEmpty()) {
+            return null;
+        }
+        else {
+            TreeNode aux = this.raiz;
+            while (aux != null) {
+                if (aux.getInfo().getCodigo() == valor) {
+                    return aux.getInfo();
+                }
+                else if (aux.getInfo().getCodigo() < valor) {
+                    aux = aux.getLeft();
+                }
+                else {
+                    aux = aux.getRight();
+                }
+            }
+        }
+        return null;
+    }
