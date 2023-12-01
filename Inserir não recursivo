@@ -1,0 +1,33 @@
+public void insertNaoRecursivo (Produto p) {
+        if (this.isEmpty()) {
+            raiz = new TreeNode (p);
+        }
+        else {
+            TreeNode aux = this.raiz;
+            while (true) {
+                int comparacao = aux.getInfo().compareTo(p);
+                if (comparacao == 0) {
+                    System.out.println("Valor repetido.");
+                    break;
+                }
+                else if (comparacao < 0) {
+                    if (aux.getLeft() == null) {
+                        aux.setLeft(new TreeNode(p));
+                        break;
+                    }
+                    else {
+                        aux = aux.getLeft();
+                    }
+                }
+                else {
+                    if (aux.getRight() == null) {
+                        aux.setRight(new TreeNode(p));
+                        break;
+                    }
+                    else {
+                        aux = aux.getRight();
+                    }
+                }
+            }
+        }
+    }
