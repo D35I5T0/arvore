@@ -29,3 +29,52 @@ public TreeNode maiorValor(TreeNode raiz) {
         }
     }
 //4)c)
+public int numeroNos(TreeNode raiz) {
+        int cont = 0;
+        if (isEmpty()) {
+            System.out.println("Árvore vazia");
+            return cont;
+        }
+        else {
+            Stack<TreeNode> stack = new Stack<>();
+            stack.push(this.raiz);
+            while (!stack.isEmpty()) {
+                TreeNode aux = stack.pop();
+                if (aux.getRight() != null && aux.getLeft() != null) {
+                    cont++;
+                }
+                if (aux.getRight() != null) {
+                    stack.push(aux.getRight());
+                }
+                if (aux.getLeft() != null) {
+                    stack.push(aux.getLeft());
+                }
+            }
+        }
+        return cont;
+    }
+//4)d)
+public int numeroFolhas(TreeNode raiz) {
+        int cont = 0;
+        if (isEmpty()) {
+            System.out.println("Árvore vazia");
+            return cont;
+        }
+        else {
+            Stack<TreeNode> stack = new Stack<>();
+            stack.push(this.raiz);
+            while (!stack.isEmpty()) {
+                TreeNode aux = stack.pop();
+                if (aux.getRight() == null && aux.getLeft() == null) {
+                    cont++;
+                }
+                if (aux.getRight() != null) {
+                    stack.push(aux.getRight());
+                }
+                if (aux.getLeft() != null) {
+                    stack.push(aux.getLeft());
+                }
+            }
+        }
+        return cont;
+    }
