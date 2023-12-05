@@ -1,0 +1,23 @@
+public int contarRepetidos (int valor) {
+        int cont = 0;
+        Stack <TreeNode> stack = new Stack<>();
+        TreeNode aux = raiz;
+        if (isEmpty()) {
+            System.out.println("Árvore vazia"); 
+            return cont;  
+        }
+        else {
+            while (!stack.isEmpty() || aux != null) {
+                while (aux != null) {
+                    if(aux.getInfo() ==  valor) {
+                        cont++;
+                    }
+                    stack.push(aux);
+                    aux = aux.getLeft();
+                }     
+                aux = stack.pop();
+                aux = aux.getRight();
+            } 
+        }
+        return cont;
+    }
