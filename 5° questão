@@ -1,0 +1,38 @@
+//5)a)
+public void passeioNaoRecursivoEmOrdem() {
+        Stack <TreeNode> stack = new Stack<>();
+        TreeNode aux = raiz;
+        if (isEmpty()) {
+            System.out.println("Árvore vazia");   
+        }
+        else {
+            while (!stack.isEmpty() || aux != null) {
+                while (aux != null) {
+                    stack.push(aux);
+                    aux = aux.getLeft();
+                }     
+                aux = stack.pop();
+                System.out.println(aux.getInfo());
+                aux = aux.getRight();
+            } 
+        }
+    }
+///5)b)
+public void passeioNaoRecursivoEmPreOrdem() {
+        Stack <TreeNode> stack = new Stack<>();
+        TreeNode aux = raiz;
+        if (isEmpty()) {
+            System.out.println("Árvore vazia");   
+        }
+        else { 
+            while (!stack.isEmpty() || aux != null) {
+                while (aux != null) {
+                    System.out.println(aux);
+                    stack.push(aux);
+                    aux = aux.getLeft();
+                }     
+                aux = stack.pop();
+                aux = aux.getRight();
+            } 
+        }
+    }
